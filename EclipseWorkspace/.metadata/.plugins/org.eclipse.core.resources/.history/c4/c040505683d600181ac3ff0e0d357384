@@ -1,0 +1,5 @@
+package hibernate.training.utils;
+
+public class HibernateUtil {
+
+}

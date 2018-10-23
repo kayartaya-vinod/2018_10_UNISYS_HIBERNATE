@@ -1,0 +1,21 @@
+package hibernate.training.utils;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public final class HibernateUtil {
+	private HibernateUtil() {
+	}
+
+	// to be made as singleton
+	private static SessionFactory factory;
+
+	public static SessionFactory getSessionFactory() {
+
+		if (factory == null) {
+			Configuration cfg = new Configuration();
+		}
+
+		return factory;
+	}
+}

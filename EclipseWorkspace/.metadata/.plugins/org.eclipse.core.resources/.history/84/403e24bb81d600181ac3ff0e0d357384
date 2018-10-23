@@ -1,0 +1,6 @@
+package hibernate.training.entity;
+
+public class Brand {
+	private Integer id;
+	private String name;
+}
