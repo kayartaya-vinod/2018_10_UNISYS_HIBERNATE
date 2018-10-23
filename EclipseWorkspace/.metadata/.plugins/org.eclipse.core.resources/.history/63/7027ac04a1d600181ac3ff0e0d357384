@@ -1,0 +1,14 @@
+package hibernate.training.entity;
+
+public class Product {
+	private Integer id;
+	private String name;
+	private String description;
+	private String quantityPerUnit;
+	private Double unitPrice;
+	private Double discount;
+	
+	private Brand brand;
+	
+	private Category category;
+}

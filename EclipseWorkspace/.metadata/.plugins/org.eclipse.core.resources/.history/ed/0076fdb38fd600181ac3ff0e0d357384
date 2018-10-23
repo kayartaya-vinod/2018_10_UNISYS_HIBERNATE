@@ -1,0 +1,31 @@
+package hibernate.training.programs;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import hibernate.training.entity.Brand;
+import hibernate.training.utils.HibernateUtil;
+
+public class P02_AddNewBrand {
+
+	public static void main(String[] args) {
+		
+		SessionFactory factory = HibernateUtil.getSessionFactory();
+		try {
+			Session session = factory.openSession();
+			
+			Brand b1 = new Brand();
+			b1.setName("Farm Fresh");
+			
+			System.out.println("Before persist, b1.id = " + b1.getId());
+			session.persist(b1); // session.save(b1);
+			System.out.println("After persist, b1.id = " + b1.getId());
+			
+			session.close();
+		} finally {
+			factory.close();
+		}
+		
+	}
+	
+}

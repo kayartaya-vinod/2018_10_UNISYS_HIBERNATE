@@ -1,0 +1,20 @@
+package hibernate.training.programs;
+
+import org.hibernate.SessionFactory;
+
+import hibernate.training.utils.HibernateUtil;
+
+public class P02_AddNewBrand {
+
+	public static void main(String[] args) {
+		
+		SessionFactory factory = HibernateUtil.getSessionFactory();
+		try {
+			
+		} finally {
+			factory.close();
+		}
+		
+	}
+	
+}

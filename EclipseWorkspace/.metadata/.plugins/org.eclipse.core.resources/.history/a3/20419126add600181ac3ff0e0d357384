@@ -1,0 +1,18 @@
+package hibernate.training.entity;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@NoArgsConstructor
+@Getter
+@Setter
+public class ContactInfo {
+
+	private String phone;
+	private String address;
+	private String city;
+	private String state;
+	private String country;
+	
+}

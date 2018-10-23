@@ -15,8 +15,13 @@ public class P01_GetOneBrand {
 		
 		try {
 			Session session = factory.openSession(); // provides CRUD operations
+			System.out.println("Got a session object");
 			Brand b1 = (Brand) session.get(Brand.class, id);
+			System.out.println("After session.get(...), b1 is an instanceof " + b1.getClass());
+			
+			System.out.println("Closing session..");
 			session.close(); // closes the underlying DB connection
+			System.out.println("Session closed!");
 			
 			System.out.println("Brand for id " + id + " is " + b1.getName());
 			

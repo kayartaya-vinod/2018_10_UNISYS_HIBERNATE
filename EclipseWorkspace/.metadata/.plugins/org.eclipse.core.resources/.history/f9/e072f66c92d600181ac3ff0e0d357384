@@ -1,0 +1,40 @@
+package hibernate.training.programs;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import hibernate.training.entity.Brand;
+import hibernate.training.utils.HibernateUtil;
+
+public class P03_FetchAndModifyBrand {
+
+	public static void main(String[] args) {
+		
+		SessionFactory factory = HibernateUtil.getSessionFactory();
+		try {
+			
+			Session session = factory.openSession();
+			Transaction tx = session.beginTransaction();
+			
+			// at this time, session is empty!
+			Brand b1 = (Brand) session.get(Brand.class, 4);
+			// at this time, session contains 1 object 
+			
+			Brand b2 = new Brand();
+			b2.setId(5);
+			b2.setName("GreensVeg");
+			// at this time JVM has 2 brand objects, session has 1
+			
+			
+			tx.commit();
+			session.close();
+			
+		} finally {
+			factory.close();
+		}
+		
+		
+	}
+	
+}

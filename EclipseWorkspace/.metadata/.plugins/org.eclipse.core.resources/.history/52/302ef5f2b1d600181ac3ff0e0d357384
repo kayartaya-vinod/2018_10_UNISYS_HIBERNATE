@@ -1,0 +1,5 @@
+package hibernate.training.entity;
+
+public class LineItem {
+
+}
