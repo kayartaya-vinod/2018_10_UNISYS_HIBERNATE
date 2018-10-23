@@ -1,1 +1,4 @@
-/Resources/
+/Resources
+/RemoteSystemsTempFiles
+/.metadata
+/.recommenders

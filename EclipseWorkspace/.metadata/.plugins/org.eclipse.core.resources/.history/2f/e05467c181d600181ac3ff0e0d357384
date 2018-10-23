@@ -1,9 +1,0 @@
-package hibernate.training.entity;
-
-import lombok.Getter;
-
-@Getter
-public class Brand {
-	private Integer id;
-	private String name;
-}
