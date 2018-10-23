@@ -1,5 +1,0 @@
-package hibernate.training.entity;
-
-public class Product {
-
-}
