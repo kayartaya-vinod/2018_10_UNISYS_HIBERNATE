@@ -17,7 +17,7 @@ public class P10_FetchOrderDetails {
 			
 			Session session = factory.openSession();
 
-			Order order = (Order) session.get(Order.class, 1);
+			Order order = (Order) session.get(Order.class, 2);
 			
 			System.out.println("Order date      : " + order.getOrderDate());
 			System.out.println("Order status    : " + order.getStatus());
@@ -31,13 +31,14 @@ public class P10_FetchOrderDetails {
 			double orderTotal = 0;
 			
 			System.out.println("------------------------------------------------------");
-			System.out.println("Product                    Quantity  Amount");
+			System.out.println("Product                      Quantity  Price  Amount");
 			System.out.println("------------------------------------------------------");
 			for(LineItem li: order.getLineItems()) {
 				orderTotal += (li.getQuantity() * li.getUnitPrice());
-				System.out.printf("%-30s %3d %10.2f\n",
+				System.out.printf("%-30s %3d %10.2f %10.2f\n",
 						li.getProduct().getDescription(),
 						li.getQuantity(),
+						li.getUnitPrice(),
 						li.getQuantity()*li.getUnitPrice());
 			}
 			System.out.println("------------------------------------------------------");
