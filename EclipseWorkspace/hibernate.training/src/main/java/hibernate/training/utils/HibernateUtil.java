@@ -10,9 +10,12 @@ import org.hibernate.service.ServiceRegistry;
 import hibernate.training.entity.Brand;
 import hibernate.training.entity.Category;
 import hibernate.training.entity.Customer;
+import hibernate.training.entity.Employee;
+import hibernate.training.entity.Laptop;
 import hibernate.training.entity.LineItem;
 import hibernate.training.entity.Order;
 import hibernate.training.entity.Product;
+import hibernate.training.entity.TechnicalSkill;
 
 public final class HibernateUtil {
 	private HibernateUtil() {
@@ -25,7 +28,7 @@ public final class HibernateUtil {
 
 		if (factory == null) {
 			Configuration cfg = new Configuration();
-			// cfg.configure(); // reads config info from hibernate.cfg.xml
+			cfg.configure(); // reads config info from hibernate.cfg.xml
 			Properties props = new Properties();
 			props.setProperty("hibernate.connection.url", "jdbc:h2:tcp://localhost/~/2018_10_UNISYS_HIBERNATE");
 			props.setProperty("hibernate.connection.driver", "org.h2.Driver");
@@ -35,17 +38,23 @@ public final class HibernateUtil {
 			props.setProperty("hibernate.format_sql", "true");
 			props.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 			
+			// props.setProperty("hibernate.hbm2ddl.auto", "update");
 			
-			ServiceRegistry registry = new StandardServiceRegistryBuilder()
-				.applySettings(props).build();
-			
+				
 			cfg.addAnnotatedClass(Brand.class);
 			cfg.addAnnotatedClass(Category.class);
 			cfg.addAnnotatedClass(Product.class);
 			cfg.addAnnotatedClass(Customer.class);
 			cfg.addAnnotatedClass(LineItem.class);
 			cfg.addAnnotatedClass(Order.class);
+
+			cfg.addAnnotatedClass(Employee.class);
+			cfg.addAnnotatedClass(Laptop.class);
+			cfg.addAnnotatedClass(TechnicalSkill.class);
 			
+
+			ServiceRegistry registry = new StandardServiceRegistryBuilder()
+				.applySettings(props).build();
 			
 			factory = cfg.buildSessionFactory(registry);
 		}
