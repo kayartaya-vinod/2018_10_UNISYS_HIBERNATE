@@ -14,7 +14,10 @@ import hibernate.training.entity.Employee;
 import hibernate.training.entity.Laptop;
 import hibernate.training.entity.LineItem;
 import hibernate.training.entity.Order;
+import hibernate.training.entity.Person;
 import hibernate.training.entity.Product;
+import hibernate.training.entity.Professor;
+import hibernate.training.entity.Student;
 import hibernate.training.entity.TechnicalSkill;
 
 public final class HibernateUtil {
@@ -37,10 +40,9 @@ public final class HibernateUtil {
 			props.setProperty("hibernate.show_sql", "false");
 			props.setProperty("hibernate.format_sql", "true");
 			props.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
-			
+
 			// props.setProperty("hibernate.hbm2ddl.auto", "update");
-			
-				
+
 			cfg.addAnnotatedClass(Brand.class);
 			cfg.addAnnotatedClass(Category.class);
 			cfg.addAnnotatedClass(Product.class);
@@ -51,11 +53,13 @@ public final class HibernateUtil {
 			cfg.addAnnotatedClass(Employee.class);
 			cfg.addAnnotatedClass(Laptop.class);
 			cfg.addAnnotatedClass(TechnicalSkill.class);
-			
 
-			ServiceRegistry registry = new StandardServiceRegistryBuilder()
-				.applySettings(props).build();
-			
+			cfg.addAnnotatedClass(Person.class);
+			cfg.addAnnotatedClass(Student.class);
+			cfg.addAnnotatedClass(Professor.class);
+
+			ServiceRegistry registry = new StandardServiceRegistryBuilder().applySettings(props).build();
+
 			factory = cfg.buildSessionFactory(registry);
 		}
 
