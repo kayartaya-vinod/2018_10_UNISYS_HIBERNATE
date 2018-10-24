@@ -10,6 +10,8 @@ import org.hibernate.service.ServiceRegistry;
 import hibernate.training.entity.Brand;
 import hibernate.training.entity.Category;
 import hibernate.training.entity.Customer;
+import hibernate.training.entity.LineItem;
+import hibernate.training.entity.Order;
 import hibernate.training.entity.Product;
 
 public final class HibernateUtil {
@@ -41,6 +43,9 @@ public final class HibernateUtil {
 			cfg.addAnnotatedClass(Category.class);
 			cfg.addAnnotatedClass(Product.class);
 			cfg.addAnnotatedClass(Customer.class);
+			cfg.addAnnotatedClass(LineItem.class);
+			cfg.addAnnotatedClass(Order.class);
+			
 			
 			factory = cfg.buildSessionFactory(registry);
 		}

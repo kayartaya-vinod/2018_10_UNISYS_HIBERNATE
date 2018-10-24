@@ -1,5 +1,7 @@
 package hibernate.training.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -16,7 +18,9 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "line_items")
-public class LineItem {
+public class LineItem implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@ManyToOne
